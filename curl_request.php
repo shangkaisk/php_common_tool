@@ -48,15 +48,10 @@ class curl_request
 	 */
 	public function start()
 	{
-		$ch = curl_init();
-		
-		//echo $this->url,'===',$this->timeout;
-
-		curl_setopt($this->ch, CURLOPT_URL, $this->url);//http://121.101.221.102:8888/sms.aspx
+		curl_setopt($this->ch, CURLOPT_URL, $this->url);
 		
 		curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($this->ch, CURLOPT_USERAGENT,$this->user_agent );
-		//curl_setopt($this->ch, CURLOPT_CUSTOMREQUEST, 'HEAD');
 		curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 		curl_setopt($this->ch, CURLOPT_SSL_VERIFYHOST, FALSE);
 
