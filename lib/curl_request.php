@@ -87,6 +87,16 @@ class curl_request
 			curl_setopt($this->ch, CURLOPT_POSTFIELDS, $this->post_data);
 
 		}
+
+        /**
+         * CURLOPT_HTTPHEADER header中的cookie是无效的，要单独设置
+         */
+        if ($this->header['Cookie'])
+        {
+            curl_setopt($this->ch, CURLOPT_COOKIE, $this->header['Cookie']);
+        }
+        unset ($this->header['Cookie']);
+
         if($this->header)
         {
             curl_setopt($this->ch, CURLOPT_HTTPHEADER, $this->header);
@@ -94,6 +104,7 @@ class curl_request
 		if(header_return){
 		curl_setopt($this->ch, CURLOPT_HEADER, $this->header_return);
 		}
+
 
 		curl_setopt($this->ch, CURLOPT_TIMEOUT, $this->timeout);
 		$output = curl_exec($this->ch);
