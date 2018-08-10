@@ -1,8 +1,7 @@
 <?php
 /**
- * 使用场景：
- * $web_path目录下的所有子文件夹进行压缩、ftp上传至 备份服务器
- *
+ * 使用场景：适用于目录下有多个网站需要 分别进行zip压缩、ftp上传备份
+ * 功能：$web_path目录下的所有子文件夹进行压缩、ftp上传至 备份服务器
  * 备注：ftp上传依赖于 ftp_upload.php
  *
  * @author:shangkai
